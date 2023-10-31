@@ -10,5 +10,15 @@
     <%= text_field_tag :user_id %>
     <%= label_tag :message, 'メッセージ' %>
     <%= text_field_tag :message %>
-    <%= submit_tag '新規登録' %>
+    <%= submit_tag 'ツイート' %>
 <% end %>
+
+<hr>
+<% if session[:login_uid] %>
+    <p><%= link_to 'ログアウト', top_logout_path %></p>
+<% else %>
+    <p><%= link_to 'ログイン', top_main_path %></p>
+<% end %>
+<p>
+    <%= link_to 'ユーザ一覧', users_path %>
+</p>
