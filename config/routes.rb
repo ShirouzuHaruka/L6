@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :users
   resources :tweets
+  resources :likes, only: [:create, :destroy]
   root 'tweets#index'
 end
