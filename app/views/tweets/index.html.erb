@@ -1,5 +1,14 @@
 <% @tweets.each do |t| %>
-    <%= t.message %><%= link_to "削除", tweet_path(t), data: {turbo_method: :delete} %>
+    <p>
+        <%= t.message %><%= link_to "削除", tweet_path(t), data: {turbo_method: :delete} %>
+    </p>
+
 <% end %>
 
-<%= link_to "新規追加", new_tweet_path %>
+<%= form_tag tweets_path, method: :post, data: {turbo: false} do %>
+    <%= label_tag :user_id, 'ユーザーID' %>
+    <%= text_field_tag :user_id %>
+    <%= label_tag :message, 'メッセージ' %>
+    <%= text_field_tag :message %>
+    <%= submit_tag '新規登録' %>
+<% end %>
