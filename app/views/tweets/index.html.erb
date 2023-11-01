@@ -6,7 +6,7 @@
     </p>
 <% end %>
 
-<%= form_tag tweets_path, method: :post, data: {turbo: false} do %>
+<%= form_tag '/tweets', {action: :create} do %>
     <%= label_tag :user_id, 'ユーザーID' %>
     <%= text_field_tag :user_id %>
     <%= label_tag :message, 'メッセージ' %>
