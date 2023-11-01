@@ -15,7 +15,7 @@
 <% end %>
 
 <hr>
-<% if session[:login_uid] %>
+<% if current_user %>
     <p><%= link_to 'ログアウト', top_logout_path %></p>
 <% else %>
     <p><%= link_to 'ログイン', top_main_path %></p>
