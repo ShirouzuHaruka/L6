@@ -1,4 +1,4 @@
-class AddColumnToTweet < ActiveRecord::Migration[7.0]
+class AddColumnToTweets < ActiveRecord::Migration[7.0]
   def change
     add_column :tweets, :user_id, :integer
   end
