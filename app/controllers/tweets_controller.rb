@@ -5,11 +5,15 @@ class TweetsController < ApplicationController
     end
     
     def create
-        user_id = params[:user_id]
         tweet_message = params[:message]
-        tweet = Tweet.new(user_id: user_id, message: tweet_message)
-        tweet.save
-        redirect_to root_path
+        tweet = current_user.tweets.new(message: tweet_message)
+        if tweet.save
+            puts "ツイート保存成功"
+            redirect_to root_path
+        else
+            puts "ツイート保存失敗: #{tweet.errors.full_messages.join(", ")}"
+            render "new"
+        end
     end
     
     def destroy

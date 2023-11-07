@@ -9,12 +9,13 @@
     </p>
 <% end %>
 
-<%= form_tag '/tweets', {action: :create} do %>
-    <%= label_tag :user_id, 'ユーザーID' %>
-    <%= text_field_tag :user_id %>
+<% if current_user %>
+  <%= form_tag '/tweets', {action: :create} do %>
+    <%= hidden_field_tag :user_id, current_user.id %>
     <%= label_tag :message, 'メッセージ' %>
     <%= text_field_tag :message %>
     <%= submit_tag 'ツイート' %>
+  <% end %>
 <% end %>
 
 <hr>
